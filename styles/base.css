@@ -1,0 +1,200 @@
+/*
+GOOGLE FONTS IMPORT
+Importing 'Roboto' for headings and 'Open Sans' for body text
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@700&display=swap');
+
+
+/*ROOT VARIABLES (color schema)*/
+:root {
+
+    --primary-color: #003366; /* Dark Blue */
+    --secondary-color: #eee; /* Light Gray */
+    --accent-color: #DAA520; /* Goldenrod (hover effect) */
+    --text-dark: #333;
+    --text-light: #fff;
+    --heading-font: 'Roboto',sans-serif;
+    --body-font:'Open Sans',sans-serif;
+
+}
+
+/* GENERAL STYLES*/
+body {
+
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+}
+
+h1,h2,h3 {
+
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+
+/*HEADER STYLES*/
+header {
+
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem;
+    text-align: center;
+}
+
+/*MAKE span display as block to center logo/text */
+header span#course-title {
+
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* NAVIGATION (flexbox) */
+nav {
+
+    background-color: #002244; /* slightly darker blue*/
+}
+
+nav ul{
+
+    display: flex;
+    justify-content: center; /* centers the menu items*/
+    list-style-type: none; /*removes bullet points*/
+    padding: 0; /* removes default padding*/
+    margin: 0; /* removes default margin */
+}
+
+nav a {
+    display: block;
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* MAIN CONTENT (Centering & Width) */
+main h1 {
+
+    grid-column: 1/-1; /* strecth it across both columns*/
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* GRID LAYOUT FOR CARDS*/
+main {
+
+    display: grid;
+    grid-template-columns: 2fr 1fr ;/* 3 to 1 columns */
+    gap: 2.5rem; /* Space between cards */
+    max-width: 1000px; /* limited width instruction*/
+    margin: 0 auto; /* centered horizontally*/
+    padding: 1rem;
+}
+
+/* If screen is too small(mobile) change to 1 column */
+@media screen and (max-width:650px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+
+    border: 1px solid #ccc;
+    padding: 4rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card h2 {
+
+    background-color: var(--primary-color);
+    color: #fff;
+    margin: 0;
+    padding: 1rem;
+}
+
+.card img, .card p {
+    padding: 1 rem;
+    max-width: 100%; /* keeps images from overflowing */
+    height: auto;
+}
+
+/* FOOTER STYLES */
+footer {
+
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+
+    margin: 0.5rem 0;
+}
+
+.resources-list {
+
+    text-align: left; /* overrides center alignment from card */
+    padding-left: 2rem; /* adds nice indentation for bullets*/
+    margin: 1rem 0; /* adds vertical spacing */
+}
+
+.resources-list li {
+
+    margin-bottom: 0.5rem;
+}
+
+.resources-list a {
+
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.resources-list a:hover {
+
+    text-decoration: underline;
+}
+
+/* ABOUT ME STYLING */
+.profile-img {
+
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ddd;
+    margin-bottom: 1rem;
+}
+
+.country-info {
+
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+.country-info h3 {
+
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.flag-img {
+
+    width: 80px;
+    border: 1px solid #ccc;
+}
