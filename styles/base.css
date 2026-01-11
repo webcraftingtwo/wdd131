@@ -120,7 +120,7 @@ main {
 }
 
 .card img, .card p {
-    padding: 1 rem;
+    padding: 1rem;
     max-width: 100%; /* keeps images from overflowing */
     height: auto;
 }
