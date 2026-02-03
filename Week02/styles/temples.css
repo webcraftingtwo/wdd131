@@ -1,0 +1,45 @@
+/* Base styles and Typography */
+body { font-family: 'Roboto', sans-serif; margin: 0; }
+header { background-color: #4b2c6e; color: white; padding: 1rem; position: relative; }
+nav { background-color: #333; }
+
+/* Flexbox Navigation */
+.navigation { 
+    display: none; /* Hidden on mobile until toggled */
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+.navigation.show { display: block; }
+.navigation li a { 
+    display: block; 
+    color: white; 
+    padding: 1rem; 
+    text-decoration: none; 
+    text-align: center;
+}
+.navigation li a:hover { background-color: #555; }
+
+/* Hamburger Button */
+#menu {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+#menu::before { content: "☰"; }
+#menu.open::before { content: "X"; }
+
+/* CSS Grid for Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: 1rem;
+    padding: 1rem;
+}
+img { width: 100%; height: auto; }
+footer { background-color: #4b2c6e; color: white; text-align: center; padding: 1rem; }

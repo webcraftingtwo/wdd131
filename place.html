@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gweru, Zimbabwe | Project Page</title>
+    <meta name="description" content="Informational page about Gweru, Zimbabwe for WDD 131.">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gweru, Zimbabwe</h1>
+    </header>
+    <main>
+        <div class="hero">
+            <picture>
+                <source srcset="images/hero-large.webp" media="(min-width: 600px)">
+                <img src="images/hero-small.webp" alt="Gweru Cityscape" loading="lazy">
+            </picture>
+        </div>
+
+        <section class="data">
+            <h2>Data</h2>
+            <ul>
+                <li><span>Area:</span> 164 sq km</li>
+                <li><span>Population:</span> 158,233</li>
+                <li><span>Capital:</span> Harare</li>
+                <li><span>Languages:</span> Shona, Ndebele, English</li>
+                <li><span>Currency:</span> ZiG / USD</li>
+                <li><span>Time Zone:</span> UTC+2</li>
+            </ul>
+        </section>
+
+        <section class="weather">
+            <h2>Weather</h2>
+            <div class="weather-info">
+                <img src="images/weather-icon.svg" alt="Cloudy Icon" class="mobile-icon">
+                <ul>
+                    <li><span>Temperature:</span> <span id="temp">10</span>°C</li>
+                    <li><span>Conditions:</span> Partly Cloudy</li>
+                    <li><span>Wind:</span> <span id="wind">5</span> km/h</li>
+                    <li><span>Wind Chill:</span> <span id="windchill"></span></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Tanatswa Mbewe | Zimbabwe</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

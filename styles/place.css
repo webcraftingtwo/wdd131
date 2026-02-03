@@ -1,0 +1,35 @@
+:root {
+    --primary-color: #1a4a1a; /* Dark green for Zimbabwe */
+    --accent-color: #f4b400; /* Gold */
+    --text-color: #333;
+    --card-bg: #f9f9f9;
+}
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--text-color); }
+header, footer { background-color: var(--primary-color); color: white; text-align: center; padding: 1rem; }
+
+/* Hero Image srcset requirement */
+.hero img { width: 100%; height: auto; object-fit: cover; }
+
+/* Mobile Card Layout */
+main { display: flex; flex-direction: column; padding: 1rem; gap: 1rem; }
+section { background: var(--card-bg); border: 1px solid #ddd; padding: 1rem; }
+ul { list-style: none; padding: 0; }
+li span { font-weight: bold; }
+
+/* Pseudo-element requirement (Desktop) */
+@media (min-width: 600px) {
+    main { 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+    .hero { grid-column: 1 / -1; }
+    
+    /* Display weather icon after 'Weather' heading on large screens */
+    .weather h2::after {
+        content: " ⛅";
+        font-size: 1.5rem;
+    }
+    .mobile-icon { display: none; }
+}

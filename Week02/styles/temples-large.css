@@ -1,0 +1,8 @@
+@media (min-width: 600px) {
+    #menu { display: none; } /* Hide hamburger on desktop */
+    .navigation { display: flex; justify-content: space-around; }
+    
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}
