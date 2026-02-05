@@ -89,10 +89,7 @@ const temples = [
     dedicated: "2019, April, 14",
     area: 12000,
     imageUrl:"https://www.churchofjesuschrist.org/imgs/8cae06798bb811ec8827eeeeac1ee76df4b07c85/full/1280%2C/0/default"
-},
-
-
-  
+},  
 ];
 
 // Display Function
