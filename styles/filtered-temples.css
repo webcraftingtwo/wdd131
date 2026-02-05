@@ -9,7 +9,11 @@ header { background: var(--primary-color); color: white; padding: 1rem; position
 
 /* Navigation */
 .navigation { display: none; list-style: none; padding: 0; }
-.navigation.show { display: block; background: #333; }
+.navigation.show { 
+    display: flex; 
+    flex-direction: column; /* Stacks links vertically on mobile */
+    background: #333; 
+}
 .navigation li a { display: block; color: white; padding: 1rem; text-decoration: none; text-align: center; }
 .navigation li a:hover { background: var(--accent-color); color: black; }
 
