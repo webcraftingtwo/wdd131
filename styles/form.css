@@ -1,0 +1,55 @@
+:root {
+    --primary-color: #301934; /* Deep Purple */
+    --accent-color: #FFD700;  /* Gold */
+    --text-font: 'Lato', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+}
+
+body {
+    font-family: var(--text-font);
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+nav {
+    display: flex; /* As per your correction */
+    justify-content: space-around;
+    background-color: #4a2c4f;
+    padding: 0.5rem;
+}
+
+h1, h2, legend {
+    font-family: var(--heading-font);
+}
+
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+    margin-top: 2rem;
+    cursor: pointer;
+}
