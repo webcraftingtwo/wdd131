@@ -1,55 +1,75 @@
 :root {
-    --primary-color: #301934; /* Deep Purple */
-    --accent-color: #FFD700;  /* Gold */
+    --primary: #301934; /* Deep Purple */
+    --accent: #FFD700;  /* Gold */
     --text-font: 'Lato', sans-serif;
     --heading-font: 'Playfair Display', serif;
 }
 
-body {
-    font-family: var(--text-font);
-    margin: 0;
-    padding: 0;
-}
+/* Mobile First Layout */
+body { font-family: var(--text-font); margin: 0; padding: 0; }
 
-header, footer {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 1rem;
+header, footer { 
+    background-color: var(--primary); 
+    color: white; 
+    text-align: center; 
+    padding: 1.5rem; 
 }
 
 nav {
-    display: flex; /* As per your correction */
+    display: flex; /* Requirement: flexbox */
     justify-content: space-around;
     background-color: #4a2c4f;
-    padding: 0.5rem;
-}
-
-h1, h2, legend {
-    font-family: var(--heading-font);
+    padding: 10px;
 }
 
 form {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
 }
 
-label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
+label { font-weight: bold; margin-top: 10px; }
+
+input[type="text"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+fieldset { 
+    border: 1px solid #ddd; 
+    padding: 15px; 
+    border-radius: 5px;
 }
 
 input[type="submit"] {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    font-weight: bold;
-    padding: 1rem;
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 15px;
     border: none;
-    width: 100%;
-    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* --- THE MISSING MEDIA QUERY --- */
+/* For screens larger than 600px (Desktop/Tablet) */
+@media (min-width: 600px) {
+    form {
+        max-width: 800px;
+        grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+        align-items: center;
+    }
+    
+    header h1 { font-size: 2.5rem; }
+    
+    /* Make full-width items span both columns */
+    fieldset, label[for="written-review"], textarea, label[for="user-name"], #user-name, input[type="submit"] {
+        grid-column: 1 / -1;
+    }
 }
