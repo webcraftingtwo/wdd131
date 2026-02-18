@@ -67,3 +67,9 @@ if (welcomeMsg) {
     visits++;
     localStorage.setItem('venturez-visits', visits);
 }
+
+// Initial Load - SAFE VERSION
+// Only run the gallery function if we are actually ON the gallery page
+if (document.getElementById('gallery-grid')) {
+    displayGallery(portfolio);
+}
