@@ -1,51 +1,94 @@
-// 1. Dynamic Footer Dates
-document.getElementById("currentyear").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = `Last Update: ${document.lastModified}`;
+/* WDD 131 Project: Venturez Photography & Design */
 
-// 2. Hamburger Menu
-const nav = document.querySelector('.navigation');
-const btn = document.querySelector('#menu');
-if (btn) {
-    btn.addEventListener('click', () => {
-        nav.classList.toggle('show');
-        btn.classList.toggle('open');
+// 1. FOOTER DATES (Run on every page)
+const yearSpan = document.getElementById("currentyear");
+const lastModifiedSpan = document.getElementById("lastModified");
+
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
+if (lastModifiedSpan) {
+    lastModifiedSpan.textContent = `Last Update: ${document.lastModified}`;
+}
+
+// 2. HAMBURGER MENU (Run on every page)
+const mainnav = document.querySelector('.navigation');
+const hambutton = document.querySelector('#menu');
+
+// Safety check: Only run if the button exists
+if (hambutton && mainnav) {
+    hambutton.addEventListener('click', () => {
+        mainnav.classList.toggle('show');
+        hambutton.classList.toggle('open');
     });
 }
 
-// 3. Portfolio Array (Array of Objects)
+// 3. PORTFOLIO DATA (Array of Objects)
 const portfolio = [
-    { title: "Neon Portraits", category: "Photography", url: "https://placehold.co/600x400?text=Neon+Portraits" },
-    { title: "Safari Brand", category: "Design", url: "https://placehold.co/600x400?text=Safari+Brand" },
-    { title: "Wedding Bliss", category: "Photography", url: "https://placehold.co/600x400?text=Wedding+Bliss" },
-    { title: "Tech UI Kit", category: "Design", url: "https://placehold.co/600x400?text=Tech+UI" },
-    { title: "Urban Fashion", category: "Photography", url: "https://placehold.co/600x400?text=Urban+Fashion" },
-    { title: "Eco Logo", category: "Design", url: "https://placehold.co/600x400?text=Eco+Logo" }
+    {
+        title: "Neon City",
+        category: "Photography",
+        url: "https://placehold.co/600x400/4b2c6e/FFF?text=Neon+City"
+    },
+    {
+        title: "Safari Brand Identity",
+        category: "Design",
+        url: "https://placehold.co/600x400/f4b400/000?text=Safari+Brand"
+    },
+    {
+        title: "Wedding Bliss",
+        category: "Photography",
+        url: "https://placehold.co/600x400/4b2c6e/FFF?text=Wedding+Bliss"
+    },
+    {
+        title: "Tech UI Kit",
+        category: "Design",
+        url: "https://placehold.co/600x400/f4b400/000?text=Tech+UI"
+    },
+    {
+        title: "Urban Fashion",
+        category: "Photography",
+        url: "https://placehold.co/600x400/4b2c6e/FFF?text=Urban+Fashion"
+    },
+    {
+        title: "Eco Logic Logo",
+        category: "Design",
+        url: "https://placehold.co/600x400/f4b400/000?text=Eco+Logo"
+    }
 ];
 
-// 4. Dynamic Gallery Function (Template Literals)
+// 4. DYNAMIC GALLERY GENERATOR
 const galleryContainer = document.getElementById('gallery-grid');
 
 function displayGallery(items) {
+    // Only run if the gallery container exists (prevents errors on Home/Contact pages)
     if (galleryContainer) {
-        galleryContainer.innerHTML = '';
+        galleryContainer.innerHTML = ''; // Clear existing content
+        
         items.forEach(item => {
-            // Creating card using template literals
+            // Create a card for each item
             const card = document.createElement('div');
             card.classList.add('card');
+            
+            // Template Literal for HTML structure
             card.innerHTML = `
-                <img src="${item.url}" alt="${item.title}" loading="lazy">
-                <h3>${item.title}</h3>
-                <p>${item.category}</p>
+                <img src="${item.url}" alt="${item.title}" loading="lazy" width="300" height="200">
+                <div class="card-content">
+                    <h3>${item.title}</h3>
+                    <p>${item.category}</p>
+                </div>
             `;
+            
             galleryContainer.appendChild(card);
         });
     }
 }
 
-// Initial Load
+// Initial Load of Gallery (if on gallery page)
 displayGallery(portfolio);
 
-// 5. Filtering Function (Conditional Branching)
+// 5. FILTER FUNCTION
 function filterGallery(category) {
     if (category === 'all') {
         displayGallery(portfolio);
@@ -55,21 +98,21 @@ function filterGallery(category) {
     }
 }
 
-// 6. LocalStorage: Visit Counter
+// 6. LOCAL STORAGE: VISIT COUNTER
 const welcomeMsg = document.getElementById('welcome-message');
-if (welcomeMsg) {
-    let visits = Number(window.localStorage.getItem('venturez-visits')) || 0;
-    if (visits > 0) {
-        welcomeMsg.textContent = `Welcome Back! You've visited ${visits} times.`;
-    } else {
-        welcomeMsg.textContent = `Welcome to Venturez! First time?`;
-    }
-    visits++;
-    localStorage.setItem('venturez-visits', visits);
-}
 
-// Initial Load - SAFE VERSION
-// Only run the gallery function if we are actually ON the gallery page
-if (document.getElementById('gallery-grid')) {
-    displayGallery(portfolio);
+if (welcomeMsg) {
+    // Get the current count, default to 0 if not found
+    let visits = Number(window.localStorage.getItem('venturez-visits-count')) || 0;
+
+    // Display message based on visit count
+    if (visits > 0) {
+        welcomeMsg.textContent = `Welcome Back! You've visited this site ${visits} times.`;
+    } else {
+        welcomeMsg.textContent = `Welcome to Venturez! This is your first visit.`;
+    }
+
+    // Increment and save the new count
+    visits++;
+    localStorage.setItem('venturez-visits-count', visits);
 }
