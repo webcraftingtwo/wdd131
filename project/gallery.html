@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the Venturez portfolio. High-end photography and graphic design projects from Gweru, Zimbabwe.">
+    <meta name="author" content="Tanatswa Mbewe">
+    <title>Portfolio | Venturez</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="styles/project-large.css" media="(min-width: 700px)">
+    <script src="scripts/project.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Venturez</div>
+        <button id="menu" title="Menu"></button>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="siteplan.html">Site Plan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Our Work</h2>
+        <div class="filters">
+            <button class="filter-btn" onclick="filterGallery('all')">All</button>
+            <button class="filter-btn" onclick="filterGallery('Photography')">Photography</button>
+            <button class="filter-btn" onclick="filterGallery('Design')">Design</button>
+        </div>
+        
+        <div id="gallery-grid"></div>
+    </main>
+
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Tanatswa Mbewe | Zimbabwe</p>
+        <p id="lastModified"></p>
+        <p><a href="reference.html">Attributions</a></p>
+    </footer>
+</body>
+</html>
