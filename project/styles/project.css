@@ -1,3 +1,4 @@
+/* GLOBAL VARIABLES */
 :root {
     --primary: #4b2c6e; /* Deep Purple */
     --accent: #f4b400;  /* Gold */
@@ -5,61 +6,144 @@
     --light: #f9f9f9;
 }
 
-body { font-family: 'Lato', sans-serif; margin: 0; color: var(--text); background: var(--light); }
-h1, h2, .logo { font-family: 'Playfair Display', serif; }
-
-/* Header & Nav */
-.logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
-
-#menu { font-size: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
-#menu::before { content: "☰"; }
-#menu.open::before { content: "X"; }
-/* Update the HEADER to be the anchor */
-header { 
-    background: var(--primary); 
-    color: white; 
-    padding: 1rem; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: relative; /* <--- CRITICAL: Anchors the menu to the header */
+/* BASE STYLES */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    color: var(--text);
+    background: var(--light);
 }
 
-/* Update the NAVIGATION to sit on top */
-.navigation { 
-    display: none; 
-    list-style: none; 
-    width: 100%; 
-    position: absolute; 
-    top: 100%; /* <--- CRITICAL: Starts exactly at the bottom of header */
-    left: 0; 
-    background: #333; 
-    margin: 0; 
-    padding: 0; 
-    text-align: center; 
-    z-index: 1000; /* <--- CRITICAL: Ensures it sits ON TOP of the hero image */
+h1, h2, .logo {
+    font-family: 'Playfair Display', serif;
 }
 
+/* HEADER & NAVIGATION (Mobile First) */
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Anchors the absolute menu */
+}
 
-.navigation.show { display: flex; flex-direction: column; }
-.navigation li a { display: block; padding: 1rem; color: white; text-decoration: none; border-bottom: 1px solid #444; }
-.navigation li a:hover, .active { color: var(--accent); }
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
 
-/* Hero */
-.hero { position: relative; text-align: center; color: white; background: #222; }
-.hero img { width: 100%; height: 300px; object-fit: cover; opacity: 0.7; }
-.hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; }
-.cta-button { background: var(--accent); color: black; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 10px; border: none; cursor: pointer; }
+/* HAMBURGER BUTTON */
+#menu {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
 
-/* Gallery Grid */
-#gallery-grid { display: grid; grid-template-columns: 1fr; gap: 15px; padding: 20px; }
-.card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-.card img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
+#menu::before {
+    content: "☰";
+}
 
-/* Form */
-.contact-container { padding: 20px; max-width: 500px; margin: 0 auto; }
-input, select, textarea { width: 100%; padding: 10px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 4px; }
+#menu.open::before {
+    content: "X";
+}
 
-/* Footer */
-footer { background: var(--primary); color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
-footer a { color: var(--accent); }
+/* NAVIGATION LIST */
+.navigation {
+    display: none; /* Hidden by default on mobile */
+    list-style: none;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Sits directly below the header */
+    left: 0;
+    background: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    z-index: 1000; /* Ensures it sits on top of images */
+}
+
+/* Class added by JS to show menu */
+.navigation.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation li a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+}
+
+.navigation li a:hover, .active {
+    color: var(--accent);
+    background-color: #444;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: #222;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    opacity: 0.6; /* Darkens image so text pops */
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.cta-button {
+    background-color: var(--accent);
+    color: black;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+}
+
+/* WELCOME SECTION */
+.welcome-section {
+    padding: 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--accent);
+}
