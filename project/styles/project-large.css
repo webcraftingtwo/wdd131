@@ -1,0 +1,16 @@
+@media (min-width: 700px) {
+    #menu { display: none; }
+    .navigation { 
+        display: flex; 
+        position: static; 
+        flex-direction: row; 
+        background: none; 
+        width: auto; 
+    }
+    .navigation li a { border: none; padding: 0 15px; }
+    
+    #gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    
+    .hero img { height: 500px; }
+    .hero-text h1 { font-size: 3rem; }
+}
