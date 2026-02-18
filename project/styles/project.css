@@ -9,14 +9,38 @@ body { font-family: 'Lato', sans-serif; margin: 0; color: var(--text); backgroun
 h1, h2, .logo { font-family: 'Playfair Display', serif; }
 
 /* Header & Nav */
-header { background: var(--primary); color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
 .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
 
 #menu { font-size: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
 #menu::before { content: "☰"; }
 #menu.open::before { content: "X"; }
+/* Update the HEADER to be the anchor */
+header { 
+    background: var(--primary); 
+    color: white; 
+    padding: 1rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; /* <--- CRITICAL: Anchors the menu to the header */
+}
 
-.navigation { display: none; list-style: none; width: 100%; position: absolute; top: 60px; left: 0; background: #333; margin: 0; padding: 0; text-align: center; }
+/* Update the NAVIGATION to sit on top */
+.navigation { 
+    display: none; 
+    list-style: none; 
+    width: 100%; 
+    position: absolute; 
+    top: 100%; /* <--- CRITICAL: Starts exactly at the bottom of header */
+    left: 0; 
+    background: #333; 
+    margin: 0; 
+    padding: 0; 
+    text-align: center; 
+    z-index: 1000; /* <--- CRITICAL: Ensures it sits ON TOP of the hero image */
+}
+
+
 .navigation.show { display: flex; flex-direction: column; }
 .navigation li a { display: block; padding: 1rem; color: white; text-decoration: none; border-bottom: 1px solid #444; }
 .navigation li a:hover, .active { color: var(--accent); }
